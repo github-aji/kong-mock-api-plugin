@@ -1,2 +1,2 @@
-# kong-mock-api-plugin
+# mock-api-plugin
 Custom plugin for kong api

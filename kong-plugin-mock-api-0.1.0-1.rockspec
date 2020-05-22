@@ -1,10 +1,10 @@
-package = "kong-mock-api"
-version = "0.1.0.1"
+package = "mock-api"
+version = "0.1.0-1"
 
 
 supported_platforms = {"linux", "macosx"}
 source = {
-  url = "http://github.com/github-aji/kong-mock-api",
+  url = "https://github.com/github-aji/kong-mock-api-plugin",
   tag = "0.1.0"
 }
 
@@ -17,7 +17,7 @@ description = {
 dependencies = {
 }
 
-local pluginName = "kong-mock-api"
+local pluginName = "mock-api"
 build = {
   type = "builtin",
   modules = {

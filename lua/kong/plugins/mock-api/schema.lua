@@ -1,5 +1,5 @@
 return {
-  name = "kong-mock-api",
+  name = "mock-api",
   fields = {
     { config = {
       type = "record",
