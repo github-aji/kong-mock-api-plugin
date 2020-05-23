@@ -1,5 +1,5 @@
 return {
-  name = "mock-api",
+  name = "mocking",
   fields = {
     { config = {
       type = "record",

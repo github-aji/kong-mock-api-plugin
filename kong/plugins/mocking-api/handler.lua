@@ -17,12 +17,9 @@ local isV3 = false
 local isV2 = false
 
 local function find_key(tbl, key)
-kong.log("Inside find_key")
 
   for lk, lv in pairs(tbl) do
-    if lk == key then
-      return lv
-    end
+    if lk == key then return lv end
     if type(lv) == "table" then
       for dk, dv in pairs(lv) do
         if dk == key then return dk end
@@ -39,7 +36,6 @@ kong.log("Inside find_key")
 end
 
 local function get_example(accept, tbl)
-kong.log("Inside get_example")
   if isV2 then
     if find_key(tbl, "examples") then
       if find_key(tbl, "examples")[accept] then
@@ -53,13 +49,10 @@ kong.log("Inside get_example")
       return ""
     end
   else
-  kong.log("Inside get_example")
     tbl = tbl.content
     if find_key(tbl, accept) then
       if find_key(tbl, accept).examples.response.value then
         return find_key(tbl, accept).examples.response.value
-      elseif find_key(tbl, accept).examples.response then
-        return find_key(tbl, accept).examples.response
       else
         return ""
       end
@@ -68,9 +61,9 @@ kong.log("Inside get_example")
 end
 
 local function get_method_path(path, method, accept)
- kong.log("Inside get_method_path"+ path + method )
+
   local rtn
-kong.log("Inside get_method_path"+ rtn)
+
   if method == "GET" then rtn = path.get
   elseif method == "POST" then rtn = path.post
   elseif method == "PUT" then rtn = path.put
@@ -153,7 +146,7 @@ local function retrieve_example(parsed_content, uripath, accept, method)
 
 end
 
-    function plugin:access(conf)
+function plugin:access(conf)
 
   -- Get resource information
   local uripath = kong.request.get_path()
